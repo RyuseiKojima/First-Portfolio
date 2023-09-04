@@ -41,8 +41,12 @@ $baby_list = $post->getbaby();
                     <th>Date Posted</th>
                     <th>Title</th>
                     <th>Username</th>
-                    <th>Detail</th>              
-                    <th>Edit</th>             
+                    <?php if(empty($_SESSION['user_id'])) {
+                        // Empty
+                    } else {?>
+                        <th>Detail</th>              
+                        <th>Edit</th>   
+                    <?php }?>             
                 </thead>
                 <tbody>
                 <?php
@@ -56,12 +60,18 @@ $baby_list = $post->getbaby();
                             </a>
                         </td>
                         <td><?= $baby['username']?></td>
-                        <td>
-                            <a href="post-detail.php?post_id=<?= $baby['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
-                        </td>
-                        <td>
-                            <a href="edit-post.php?post_id=<?= $baby['post_id'] ?>" class="btn btn-warning btn-sm" title="Edit post"><i class="fa-solid fa-pen"></i></a>
-                        </td>
+                        <?php if(empty($_SESSION['user_id'])) {
+                            // Empty
+                        } else {?>
+                            <td>
+                                <a href="post-detail.php?post_id=<?= $baby['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
+                            </td>
+                            <td>
+                                <?php if($_SESSION['user_id'] == $baby['user_id']) {?>
+                                    <a href="edit-post.php?post_id=<?= $baby['post_id'] ?>" class="btn btn-warning btn-sm" title="Edit post"><i class="fa-solid fa-pen"></i></a>
+                                <?php }?>
+                            </td> 
+                        <?php }?>
                     </tr>
                     <?php
                     }

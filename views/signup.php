@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="col-4 position-relative">
                                             <p class="mb-0 position-absolute">
-                                                Have an account? <a href="index.php">Log in</a>
+                                                Have an account? <a href="login.php">Log in</a>
                                             </p>
                                         </div>
                                     </div>

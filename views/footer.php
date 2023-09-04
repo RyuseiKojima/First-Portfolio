@@ -26,14 +26,18 @@
             <div class="col col-lg-2">
                 <div class="h5 mb-4">Links</div>
                 <p>
-                    <a href="homepage.php" class="text-white" style="text-decoration: none;">home</a>
+                    <a href="index.php" class="text-white" style="text-decoration: none;">home</a>
                 </p>
                 <p>
                     <a href="add-post.php" class="text-white" style="text-decoration: none;">add post</a>
                 </p>
-                <p>
-                    <a href="profile.php" class="text-white" style="text-decoration: none;">profile</a>
-                </p>
+                <?php if(empty($_SESSION['user_id'])) {
+                    // Empty
+                } else {?>
+                    <p>
+                        <a href="profile.php" class="text-white" style="text-decoration: none;">profile</a>
+                    </p>
+                <?php }?>
                 <p>
                     <a href="contact.php" class="text-white" style="text-decoration: none;">contact</a>
                 </p>

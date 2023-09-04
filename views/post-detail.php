@@ -30,10 +30,12 @@ $post_details = $post->getPost($_GET['post_id']);
         <div class="container w-50 mx-auto">
             <div class="row my-4">
                 <div class="col text-start">
-                    <a href="<?= $post_details['category']?>.php" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-chevron-left me-2"></i>Back</a>
+                    <a href="<?= $_SERVER['HTTP_REFERER']?>" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-chevron-left me-2"></i>Back</a>
                 </div>
                 <div class="col text-end">
-                    <a href="edit-post.php?post_id=<?= $_GET['post_id']?>" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-pen me-1"></i>Edit</a>
+                    <?php if($_SESSION['user_id'] == $post_details['user_id']) {?>
+                        <a href="edit-post.php?post_id=<?= $_GET['post_id']?>" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-pen me-1"></i>Edit</a>
+                    <?php }?>
                 </div>
             </div>
             <article class="p-3 bg-light">

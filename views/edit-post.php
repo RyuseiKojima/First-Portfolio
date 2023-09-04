@@ -30,7 +30,7 @@ $site = $post->getSiteSelected($_GET['post_id']);
         ?>
         <!-- Edit Post -->
         <div class="container w-50 mx-auto">
-            <a href="<?= $post_details['category']?>.php" class="text-dark text-decoration-none my-3 d-block w-25"><i class="fa-solid fa-chevron-left me-2"></i>Back</a>
+            <a href="<?= $_SERVER['HTTP_REFERER']?>" class="text-dark text-decoration-none my-3 d-block w-25"><i class="fa-solid fa-chevron-left me-2"></i>Back</a>
             <h2 class="display-4 text-center my-4">Edit Post</h2>
             <div class="col-10 mx-auto">
                 <form action="../actions/post-actions.php?post_id=<?= $_GET['post_id']?>" method="post">
