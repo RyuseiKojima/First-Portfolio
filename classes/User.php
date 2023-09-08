@@ -13,13 +13,25 @@ class User extends Database {
 
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO user (`first_name`, `last_name`, `address`, `contact_number`, `username`, `password`) VALUES('$first_name', '$last_name', '$address','$number','$username', '$password')";
+        $username_check = "SELECT `username` FROM user WHERE username = '$username'";
 
-        if ($this->conn->query($sql)) {
-            header('location: ../views'); 
-            exit;
+        // Check to username
+        if ($result = $this->conn->query($username_check)) {
+            // If username is not used
+            if ($result->num_rows == 0) {
+                // Insert new user's data
+                $sql = "INSERT INTO user (`first_name`, `last_name`, `address`, `contact_number`, `username`, `password`) VALUES('$first_name', '$last_name', '$address','$number','$username', '$password')";
+                if ($this->conn->query($sql)) {
+                    header('location: ../views/login.php'); 
+                    exit;
+                } else {
+                    die('Error creating the user: '.$this->conn->error);
+                }
+            } else {
+                header('location: ../views/signup.php'); 
+            }
         } else {
-            die('Error creating the user: '.$this->conn->error);
+            die("Error: ". $this->conn->error);
         }
     }
 
