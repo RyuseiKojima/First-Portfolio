@@ -22,7 +22,7 @@ session_start();
         ?>
         <!-- Contact Post -->
         <div class="container w-50 mx-auto">
-            <a href="../index.php" class="text-dark text-decoration-none my-3 d-block"><i class="fa-solid fa-chevron-left me-2"></i>Home</a>
+            <a href="index.php" class="text-dark text-decoration-none my-3 d-block"><i class="fa-solid fa-chevron-left me-2"></i>Home</a>
             <h2 class="display-4 text-center my-4">Contact Us</h2>
             <div class="col-10 mx-auto">
                 <form action="../actions/contact-actions.php" method="post">

@@ -28,7 +28,7 @@ class User extends Database {
                     die('Error creating the user: '.$this->conn->error);
                 }
             } else {
-                header('location: ../views/signup.php'); 
+                header('location: ../views/signup-retry.php'); 
             }
         } else {
             die("Error: ". $this->conn->error);
@@ -50,7 +50,7 @@ class User extends Database {
                 $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['password'] = $user['password'];
-                header('location: ../index.php');
+                header('location: index.php');
                 exit;
             } else {
                 die("Password is incorrect");
