@@ -12,7 +12,7 @@ class Opinion extends Database {
         $sql = "INSERT INTO `opinion`(`username`, `about`, `address`, `opinion`) VALUES ('$username','$about','$address','$opinion')";
 
         if ($this->conn->query($sql)) {
-            header('location: ../views/index.php'); 
+            header('location: ../index.php'); 
             exit;
         } else {
             die ("Error: ".$this->conn->error);

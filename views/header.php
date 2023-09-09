@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-white px-5 bg-white">
-    <a href="index.php" class="navbar-brand">
+    <a href="../index.php" class="navbar-brand">
         <h1>Shared killing time</h1>
     </a>
     <ul class="navbar-nav ms-auto">
