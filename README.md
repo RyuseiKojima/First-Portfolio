@@ -5,6 +5,7 @@ Shared kill time
 # DEMO
  
 <img src="/assets/images/readme-1.jpg" width="500">
+<br>
 <img src="/assets/images/readme-2.jpg" width="500">
  
 # Features
