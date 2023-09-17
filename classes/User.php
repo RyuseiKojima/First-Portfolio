@@ -50,7 +50,11 @@ class User extends Database {
                 $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['password'] = $user['password'];
-                header('location: ../views/index.php');
+                if ($user['role'] == 'U') {
+                    header('location: ../views/index.php');
+                } else {
+                    header('location: ../views/admin.php');
+                }
                 exit;
             } else {
                 die("Password is incorrect");
