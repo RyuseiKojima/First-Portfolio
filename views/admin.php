@@ -29,21 +29,13 @@ $opinion_lists = $opinion->getAllOpinion();
 </head>
 <body>
     <div class="wrapper w-100 m-auto">
-        <!-- Banner -->
-        <nav class="navbar navbar-expand-md navbar-black px-5 bg-black">
-            <a href="admin.php" class="navbar-brand link-light">
-                <h1 class="text-white">Admin Page</h1>
-            </a>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a href="../actions/logout.php" class="nav-link text-white">Logout</a>
-                </li>
-            </ul>
-        </nav>
-        
+        <!-- Header -->
+        <?php
+        include 'admin-header.php';
+        ?>
         <!-- Post List -->
         <main class="container mt-5">
-            <div class="h2">All Posts (<?= $post->countPost();?> items)</div>
+            <div class="h2" id="post">All Posts (<?= $post->countPost();?> items)</div>
             <table class="table table-warning table-striped table-hover">
                 <thead>
                     <th>Date Posted</th>
@@ -82,7 +74,7 @@ $opinion_lists = $opinion->getAllOpinion();
         
         <!-- User List -->
         <main class="container mt-5">
-            <div class="h2">All Users (<?= $user->countUser();?> items)</div>
+            <div class="h2" id="user">All Users (<?= $user->countUser();?> items)</div>
             <table class="table table-success table-striped table-hover">
                 <thead>
                     <th>Name</th>
@@ -117,7 +109,7 @@ $opinion_lists = $opinion->getAllOpinion();
 
         <!-- Opinion List -->
         <main class="container mt-5">
-            <div class="h2">All Opinions (<?= $opinion->countOpinion();?> items)</div>
+            <div class="h2" id="opinion">All Opinions (<?= $opinion->countOpinion();?> items)</div>
             <table class="table table-secondary table-striped table-hover">
                 <thead>
                     <th>Username</th>

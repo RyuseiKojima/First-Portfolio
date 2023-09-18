@@ -6,8 +6,8 @@ include "../classes/Post.php";
 
 $user = new User;
 $post = new Post;
-$user_data = $user->getUser();
-$mypost_list = $post->getMyPost();
+$user_data = $user->adminGetUser();
+$mypost_list = $post->adminGetPost();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +26,12 @@ $mypost_list = $post->getMyPost();
     <div class="wrapper w-100 m-auto">
         <!-- Header -->
         <?php
-        include 'header.php';
+        include 'admin-header.php';
         ?>
         <!-- Profile -->
         <main class="row justify-content-center py-3" style="background-color: lightcyan;">
             <div class="col-4">
-                <h2 class="text-center mb-4"><?=$_SESSION['username']?></h2>
+                <h2 class="text-center mb-4"><?=$user_data['username']?></h2>
                 <div class="row justify-content-center mb-3">
                     <div class="col-6">
                         <?php
@@ -45,7 +45,7 @@ $mypost_list = $post->getMyPost();
                         <?php
                         }
                         ?>
-                        <a href="edit-profile.php?user_id=<?= $_SESSION['user_id'] ?>" class="d-block btn btn-dark mt-3 mx-auto" title="Edit profile">Edit Profile <i class="fa-solid fa-pen"></i></a>
+                        <a href="admin-edit-profile.php?user_id=<?= $_GET['user_id'] ?>" class="d-block btn btn-dark mt-3 mx-auto" title="Edit profile">Edit Profile <i class="fa-solid fa-pen"></i></a>
                     </div>
                 </div>
             </div>
@@ -74,10 +74,10 @@ $mypost_list = $post->getMyPost();
                         </td>
                         <td><?= $mypost['category']?></td>
                         <td>
-                            <a href="post-detail.php?post_id=<?= $mypost['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
+                            <a href="admin-post-detail.php?post_id=<?= $mypost['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
                         </td>
                         <td>
-                            <a href="edit-post.php?post_id=<?= $mypost['post_id'] ?>" class="btn btn-warning btn-sm" title="Edit post"><i class="fa-solid fa-pen"></i></a>
+                            <a href="admin-edit-post.php?post_id=<?= $mypost['post_id'] ?>" class="btn btn-warning btn-sm" title="Edit post"><i class="fa-solid fa-pen"></i></a>
                         </td>
                     </tr>
                     <?php
@@ -99,14 +99,9 @@ $mypost_list = $post->getMyPost();
                     <th></th>           
                 </thead>
                 <tbody>
-                    
                 </tbody>
             </table>
         </main> -->
-        <!-- Footer -->
-        <?php
-        include 'footer.php';
-        ?>
     </div>
 </body>
 </html>

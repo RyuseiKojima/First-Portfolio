@@ -9,5 +9,7 @@ if(isset($_POST['register'])) {
     $user->login($_POST);
 } elseif(isset($_POST['edit'])) {
     $user->editProfile($_POST, $_FILES);
+} elseif(isset($_POST['admin_edit'])) {
+    $user->adminEditProfile($_POST, $_FILES);
 }
 ?>

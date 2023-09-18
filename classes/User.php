@@ -76,6 +76,19 @@ class User extends Database {
             die('Error retrieving the user: '.$this->conn->error);
         }
     }
+
+    public function adminGetUser() {
+        
+        $user_id = $_GET['user_id'];
+
+        $sql = "SELECT * FROM user WHERE `user_id` = $user_id";
+
+        if ($result = $this->conn->query($sql)) {
+            return $result->fetch_assoc();
+        } else {
+            die('Error retrieving the user: '.$this->conn->error);
+        }
+    }
     
     public function getAllUser() {
         $sql = "SELECT * FROM `user`";
@@ -125,8 +138,8 @@ class User extends Database {
 
                 if($this->conn->query($sql)) {
                     if(move_uploaded_file($tmp_photo, $destination)){
-                        // header('location: ../views/profile.php');
-                        // exit;
+                        header('location: ../views/profile.php');
+                        exit;
                     } else {
                         die('Error moving the photo.');
                     }
@@ -135,6 +148,49 @@ class User extends Database {
                 }
             }
             header("location: ../views/profile.php");
+            exit;
+        } else {
+            die('Error updation the user: '. $this->conn->error);
+        }
+    }
+
+    public function adminEditProfile($request, $files) {
+        session_start();
+        $user_id = $_GET['user_id'];
+        $first_name = $request['first_name'];
+        $last_name = $request['last_name'];
+        $username = $request['username'];
+        $address = $request['address'];
+        $number = $request['contact_number'];
+        $photo = $files['photo']['name'];
+        $tmp_photo = $files['photo']['tmp_name'];
+        echo $number;
+
+        // ['photo'] -> is the name of the input file
+        // ['name'] -> is the actual name of the image
+        // ['tmp_name'] -> temporary storage that holds the image temporarily
+        
+        $sql = "UPDATE user SET first_name = '$first_name', last_name = '$last_name', username = '$username', `address` = '$address', contact_number = '$number' WHERE `user_id` = $user_id";
+
+        if($this->conn->query($sql)) {
+            $_SESSION['username'] = $username;
+
+            if($photo) {
+                $sql = "UPDATE user SET photo = '$photo' WHERE `user_id` = $user_id";
+                $destination = "../assets/images/$photo";
+
+                if($this->conn->query($sql)) {
+                    if(move_uploaded_file($tmp_photo, $destination)){
+                        header('location: ../views/profile.php');
+                        exit;
+                    } else {
+                        die('Error moving the photo.');
+                    }
+                } else {
+                    die('Error uploading photo; '.$this->conn->error);
+                }
+            }
+            header("location: ../views/admin-profile.php?user_id=$user_id");
             exit;
         } else {
             die('Error updation the user: '. $this->conn->error);
