@@ -23,6 +23,28 @@ class Post extends Database {
         }
     }
 
+    // For Admin
+    public function getAllPost() {
+        $sql ="SELECT * FROM `post` INNER JOIN `user` ON post.user_id = user.user_id ORDER BY date_posted";
+
+        if($result = $this->conn->query($sql)) {
+            return $result;
+        } else {
+            die('Error retrieving all posts: '.$this->conn->error);
+        }
+    }
+
+    public function countPost() {
+        $sql ="SELECT COUNT(*) FROM `post`";
+
+        if($result = $this->conn->query($sql)) {
+            $result_assoc = $result->fetch_assoc();
+            return $result_assoc['COUNT(*)'];
+        } else {
+            die('Error retrieving all posts: '.$this->conn->error);
+        }
+    }
+    
     // Show each post
     public function getFunny() {
         $sql ="SELECT * FROM `post` INNER JOIN `user` ON post.user_id = user.user_id WHERE category = 'funny' ORDER BY date_posted";

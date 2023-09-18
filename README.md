@@ -25,12 +25,12 @@ Kredoは全授業が英語で実施され、このサイトはその一環とし
   <dt>言語</dt>
   <dd>php 8.2.0</dd>
   <dt>DBMS</dt>
-  <dd>mySQL 5.2.0</dd>
+  <dd>phpMyAdmin 5.2.0</dd>
   <dt>CSSフレームワーク</dt>
   <dd>Bootstrap</dd>
   <dt>開発環境</dt>
   <dd>Visual Studio Code</dd>
-  <dd>XAMPP 3.3.0</dd>
+  <dd>Apache 2.4.54 (Win64)</dd>
   <dt>バージョン管理</dt>
   <dd>Git</dd>
 </dl> 

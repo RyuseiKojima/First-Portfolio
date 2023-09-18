@@ -77,6 +77,27 @@ class User extends Database {
         }
     }
     
+    public function getAllUser() {
+        $sql = "SELECT * FROM `user`";
+
+        if ($result = $this->conn->query($sql)) {
+            return $result;
+        } else {
+            die('Error retrieving all users: '.$this->conn->error);
+        }
+    }
+
+    public function countUser() {
+        $sql ="SELECT COUNT(*) FROM `user`";
+
+        if($result = $this->conn->query($sql)) {
+            $result_assoc = $result->fetch_assoc();
+            return $result_assoc['COUNT(*)'];
+        } else {
+            die('Error retrieving all users: '.$this->conn->error);
+        }
+    }
+    
     public function editProfile($request, $files) {
         session_start();
         $user_id = $_SESSION['user_id'];
