@@ -50,6 +50,7 @@ class User extends Database {
                 $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['password'] = $user['password'];
+                $_SESSION['address'] = $user['address'];
                 if ($user['role'] == 'U') {
                     header('location: ../views/index.php');
                 } else {

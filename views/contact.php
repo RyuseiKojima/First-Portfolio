@@ -26,14 +26,26 @@ session_start();
             <h2 class="display-4 text-center my-4">Contact Us</h2>
             <div class="col-10 mx-auto">
                 <form action="../actions/contact-actions.php" method="post">
-                    <input type="text" name="username" class="form-control mb-3 border-3 border-secondary border-top-0 border-end-0 border-start-0 rounded-0 shadow-none" placeholder="USERNAME(if you have)" autofocus>
+                    <input type="text" name="username" class="form-control mb-3 border-3 border-secondary border-top-0 border-end-0 border-start-0 rounded-0 shadow-none" placeholder="USERNAME(if you have)" autofocus
+                    <?php if(empty($_SESSION['user_id'])) {
+                        // Empty
+                    } else {?>
+                        value="<?= $_SESSION['username']?>"
+                    <?php }?>
+                    />
                     <select name="about" class="form-select mb-3 border-3 border-secondary border-top-0 border-end-0 border-start-0 rounded-0 shadow-none" required>
                         <option value="" hidden>ABOUT</option>
                         <option value="site">Site</option>
                         <option value="post">Post</option>
                         <option value="others">Others</option>
                     </select>
-                    <input type="email" name="address" class="form-control mb-3 border-3 border-secondary border-top-0 border-end-0 border-start-0 rounded-0 shadow-none" placeholder="ADDRESS" required/>
+                    <input type="email" name="address" class="form-control mb-3 border-3 border-secondary border-top-0 border-end-0 border-start-0 rounded-0 shadow-none" placeholder="ADDRESS" required
+                    <?php if(empty($_SESSION['user_id'])) {
+                        // Empty
+                    } else {?>
+                        value="<?= $_SESSION['address']?>"
+                    <?php }?>
+                    />
                     <textarea name="post_message" class="form-control mb-3 border-3 border-secondary shadow-none" rows="7" placeholder="COMMENT"></textarea>
                     <button type="submit" name="post" class="btn btn-secondary w-100 mt-5 text-uppercase">Post</button>
                 </form>
