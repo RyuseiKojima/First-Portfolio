@@ -2,8 +2,10 @@
 session_start();
 
 include "../classes/Post.php";
+include "../classes/Like.php";
 
 $post = new Post;
+$like = new Like;
 
 $post_details = $post->getPost($_GET['post_id']);
 ?>
@@ -30,7 +32,7 @@ $post_details = $post->getPost($_GET['post_id']);
         <div class="container w-50 mx-auto">
             <div class="row my-4">
                 <div class="col text-start">
-                    <a href="<?= $_SERVER['HTTP_REFERER']?>" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-chevron-left me-2"></i>Back</a>
+                    <a href="admin" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-chevron-left me-2"></i>Admin</a>
                 </div>
                 <div class="col text-end">
                     <a href="admin-edit-post.php?post_id=<?= $_GET['post_id']?>" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-pen me-1"></i>Edit</a>
@@ -47,6 +49,9 @@ $post_details = $post->getPost($_GET['post_id']);
                     &ensp;
                     <span>Category: <?= $post_details['category']?></span>
                 </header>
+                    <div class="mt-1">
+                        <?php $like->getLike($post_details['user_id'], $post_details['post_id']);?>
+                    </div>
                     <p class="py-5 h5"><?= $post_details['comment']?></p>
                 <footer>
                     <span>Site: <?= $post_details['site']?></span>
