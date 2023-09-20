@@ -2,8 +2,10 @@
 session_start();
 
 include "../classes/Post.php";
+include "../classes/Like.php";
 
 $post = new Post;
+$like = new Like;
 $funny_list = $post->getFunny();
 ?>
 <!DOCTYPE html>
@@ -65,9 +67,7 @@ $funny_list = $post->getFunny();
                             // Empty
                         } else {?>
                             <td>
-                                <form action="../actions/like-actions.php?user_id=<?= $funny['user_id']?>&post_id=<?= $funny['post_id']?>&g_user_id=<?= $_SESSION['user_id']?>" method="post">
-                                    <button type="submit" class="btn btn-sm" name="like"><i class="fa-regular fa-heart"></i></a></button>
-                                </form>
+                                <?php $like->getLike($funny['user_id'], $funny['post_id']);?>
                             </td>
                             <td>
                                 <a href="post-detail.php?post_id=<?= $funny['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>

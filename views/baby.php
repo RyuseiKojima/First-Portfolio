@@ -2,8 +2,10 @@
 session_start();
 
 include "../classes/Post.php";
+include "../classes/Like.php";
 
 $post = new Post;
+$like = new Like;
 $baby_list = $post->getbaby();
 ?>
 <!DOCTYPE html>
@@ -44,12 +46,13 @@ $baby_list = $post->getbaby();
                     <?php if(empty($_SESSION['user_id'])) {
                         // Empty
                     } else {?>
+                        <th>Good</th>              
                         <th>Detail</th>              
-                        <th>Edit</th>   
+                        <th>Edit</th>  
                     <?php }?>             
                 </thead>
                 <tbody>
-                <?php
+                    <?php
                     foreach($baby_list as $baby){
                     ?>
                     <tr>
@@ -63,6 +66,9 @@ $baby_list = $post->getbaby();
                         <?php if(empty($_SESSION['user_id'])) {
                             // Empty
                         } else {?>
+                            <td>
+                                <?php $like->getLike($baby['user_id'], $baby['post_id']);?>
+                            </td>
                             <td>
                                 <a href="post-detail.php?post_id=<?= $baby['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
                             </td>

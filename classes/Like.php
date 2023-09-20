@@ -2,6 +2,7 @@
 require_once "Database.php";
 
 class Like extends Database {
+    // Check good or not, after that change good button status
     public function makeLike() {
         $user_id = $_GET['user_id'];
         $post_id = $_GET['post_id'];
@@ -30,6 +31,32 @@ class Like extends Database {
             exit;
         } else {
             die('Error retrieving all likes: '.$this->conn->error);
+        }
+    }
+
+    public function getLike($user_id, $post_id) {
+        $g_user_id = $_SESSION['user_id'];
+
+        $color_sql = "SELECT COUNT(*) FROM `like` WHERE `post_id` = $post_id AND `g_user_id` = $g_user_id AND `good` = 1";
+        $color_assoc = $this->conn->query($color_sql)->fetch_assoc();
+        $color = $color_assoc['COUNT(*)'];
+
+        $count_sql = "SELECT COUNT(*) FROM `like` WHERE `post_id` = $post_id AND `good` = 1";
+        $count_assoc = $this->conn->query($count_sql)->fetch_assoc();
+        $count = $count_assoc['COUNT(*)'];
+
+        if($color == 1) {
+            ?>
+            <form action="../actions/like-actions.php?user_id=<?= $user_id?>&post_id=<?= $post_id?>&g_user_id=<?= $g_user_id?>" method="post">
+                <button type="submit" class="btn btn-sm btn-danger" name="like"><i class="fa-regular fa-heart"></i></a>  <?= $count?></button>
+            </form>
+            <?php 
+        } elseif($color == 0) {
+            ?>
+            <form action="../actions/like-actions.php?user_id=<?= $user_id?>&post_id=<?= $post_id?>&g_user_id=<?= $g_user_id?>" method="post">
+                <button type="submit" class="btn btn-sm" name="like"><i class="fa-regular fa-heart"></i></a>  <?= $count?></button>
+            </form>
+            <?php 
         }
     }
 

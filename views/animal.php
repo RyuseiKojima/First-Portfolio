@@ -2,8 +2,10 @@
 session_start();
 
 include "../classes/Post.php";
+include "../classes/Like.php";
 
 $post = new Post;
+$like = new Like;
 $animal_list = $post->getAnimal();
 ?>
 <!DOCTYPE html>
@@ -44,8 +46,9 @@ $animal_list = $post->getAnimal();
                     <?php if(empty($_SESSION['user_id'])) {
                         // Empty
                     } else {?>
+                        <th>Good</th>              
                         <th>Detail</th>              
-                        <th>Edit</th>   
+                        <th>Edit</th>     
                     <?php }?>
                 </thead>
                 <tbody>
@@ -63,6 +66,9 @@ $animal_list = $post->getAnimal();
                         <?php if(empty($_SESSION['user_id'])) {
                             // Empty
                         } else {?>
+                            <td>
+                                <?php $like->getLike($animal['user_id'], $animal['post_id']);?>
+                            </td>
                             <td>
                                 <a href="post-detail.php?post_id=<?= $animal['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
                             </td>

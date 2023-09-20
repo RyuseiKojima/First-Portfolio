@@ -1,9 +1,11 @@
 <?php
 session_start();
 
+include "../classes/Like.php";
 include "../classes/Post.php";
 
 $post = new Post;
+$like = new Like;
 $nature_list = $post->getnature();
 ?>
 <!DOCTYPE html>
@@ -44,6 +46,7 @@ $nature_list = $post->getnature();
                     <?php if(empty($_SESSION['user_id'])) {
                         // Empty
                     } else {?>
+                        <th>Good</th> 
                         <th>Detail</th>              
                         <th>Edit</th>   
                     <?php }?>          
@@ -63,6 +66,9 @@ $nature_list = $post->getnature();
                         <?php if(empty($_SESSION['user_id'])) {
                             // Empty
                         } else {?>
+                            <td>
+                                <?php $like->getLike($funny['user_id'], $funny['post_id']);?>
+                            </td>
                             <td>
                                 <a href="post-detail.php?post_id=<?= $natute['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
                             </td>
