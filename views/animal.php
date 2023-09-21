@@ -41,7 +41,7 @@ $animal_list = $post->getAnimal();
             <table class="table table-primary table-striped table-hover">
                 <thead>
                     <th>Date Posted</th>
-                    <th>Title</th>
+                    <th>Title (Link)</th>
                     <th>Username</th>
                     <?php if(empty($_SESSION['user_id'])) {
                         // Empty

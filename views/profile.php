@@ -2,12 +2,15 @@
 session_start();
 
 include "../classes/User.php";
+include "../classes/Like.php";
 include "../classes/Post.php";
 
 $user = new User;
+$like = new Like;
 $post = new Post;
 $user_data = $user->getUser();
 $mypost_list = $post->getMyPost();
+$good_lists = $post->getGoodPost();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +59,9 @@ $mypost_list = $post->getMyPost();
             <table class="table table-striped table-hover">
                 <thead class="table-secondary">
                     <th>Date Posted</th>
-                    <th>Title</th>
+                    <th>Title (Link)</th>
                     <th>Content</th>
+                    <th>Good</th>
                     <th>Detail</th>              
                     <th>Edit</th>               
                 </thead>
@@ -74,6 +78,9 @@ $mypost_list = $post->getMyPost();
                         </td>
                         <td><?= $mypost['category']?></td>
                         <td>
+                            <?php $like->getLike($mypost['user_id'], $mypost['post_id']);?>
+                        </td>
+                        <td>
                             <a href="post-detail.php?post_id=<?= $mypost['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
                         </td>
                         <td>
@@ -87,22 +94,43 @@ $mypost_list = $post->getMyPost();
             </table>
         </main>
         <!-- Good list -->
-        <!-- <main class="container mt-5">
+        <main class="container mt-5">
             <div class="h2">Good Lists</div>
             <table class="table table-striped table-hover">
                 <thead class="table-info">
                     <th>Date Posted</th>
-                    <th>Title</th>
+                    <th>Title (Link)</th>
                     <th>Username</th>
                     <th>Content</th>
-                    <th></th>
-                    <th></th>           
+                    <th>Good</th>
+                    <th>Detail</th>           
                 </thead>
                 <tbody>
-                    
+                    <?php
+                    foreach($good_lists as $good_list){
+                    ?>
+                    <tr>
+                        <td><?= $good_list['date_posted']?></td>
+                        <td>
+                            <a href="<?= $good_list['url']?>" class="text-dark" target="_blank">
+                                <?= $good_list['title']?>
+                            </a>
+                        </td>
+                        <td><?= $good_list['username']?></td>
+                        <td><?= $good_list['category']?></td>
+                        <td>
+                            <?php $like->getLike($good_list['user_id'], $good_list['post_id']);?>
+                        </td>
+                        <td>
+                            <a href="post-detail.php?post_id=<?= $good_list['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
+                        </td>
+                    </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
             </table>
-        </main> -->
+        </main>
         <!-- Footer -->
         <?php
         include 'footer.php';

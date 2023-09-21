@@ -41,7 +41,7 @@ $funny_list = $post->getFunny();
             <table class="table table-danger table-striped table-hover">
                 <thead>
                     <th>Date Posted</th>
-                    <th>Title</th>
+                    <th>Title (Link)</th>
                     <th>Username</th>
                     <?php if(empty($_SESSION['user_id'])) {
                         // Empty

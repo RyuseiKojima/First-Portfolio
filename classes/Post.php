@@ -121,6 +121,18 @@ class Post extends Database {
         }
     }
 
+    public function getGoodPost() {
+        $user_id = $_SESSION['user_id'];
+
+        $sql ="SELECT * FROM `like` INNER JOIN `post` ON `like`.post_id = post.post_id INNER JOIN `user` ON `like`.`user_id` = user.user_id WHERE `like`.g_user_id = 1 AND good = $user_id ORDER BY date_posted";
+
+        if($result = $this->conn->query($sql)) {
+            return $result;
+        } else {
+            die('Error retrieving all posts: '.$this->conn->error);
+        }
+    }
+
         public function editPost($request) {
         $date_posted = date('Y-m-d');
         $post_name = $request['post_name'];
@@ -224,8 +236,6 @@ class Post extends Database {
     
     public function adminDeletePost() {
         $post_id = $_GET['post_id'];
-        $post = $this->getPost($post_id);
-        $category = $post['category'];
         $sql = "DELETE FROM post WHERE post_id = $post_id";
 
         if($this->conn->query($sql)) {

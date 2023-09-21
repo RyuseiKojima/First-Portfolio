@@ -39,7 +39,7 @@ $opinion_lists = $opinion->getAllOpinion();
             <table class="table table-warning table-striped table-hover">
                 <thead>
                     <th>Date Posted</th>
-                    <th>Title</th>
+                    <th>Title (Link)</th>
                     <th>Username</th>
                     <th>Category</th>
                     <th>Detail</th>              

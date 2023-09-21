@@ -32,7 +32,7 @@ $post_details = $post->getPost($_GET['post_id']);
         <div class="container w-50 mx-auto">
             <div class="row my-4">
                 <div class="col text-start">
-                    <a href="admin" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-chevron-left me-2"></i>Admin</a>
+                    <a href="admin.php" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-chevron-left me-2"></i>Admin</a>
                 </div>
                 <div class="col text-end">
                     <a href="admin-edit-post.php?post_id=<?= $_GET['post_id']?>" class="text-dark text-decoration-none d-block"><i class="fa-solid fa-pen me-1"></i>Edit</a>

@@ -41,7 +41,7 @@ $nature_list = $post->getnature();
             <table class="table table-success table-striped table-hover">
                 <thead>
                     <th>Date Posted</th>
-                    <th>Title</th>
+                    <th>Title (Link)</th>
                     <th>Username</th>
                     <?php if(empty($_SESSION['user_id'])) {
                         // Empty
@@ -67,7 +67,7 @@ $nature_list = $post->getnature();
                             // Empty
                         } else {?>
                             <td>
-                                <?php $like->getLike($funny['user_id'], $funny['post_id']);?>
+                                <?php $like->getLike($nature['user_id'], $nature['post_id']);?>
                             </td>
                             <td>
                                 <a href="post-detail.php?post_id=<?= $natute['post_id'] ?>" class="btn btn-secondary btn-sm" title="Post detail"><i class='fa-solid fa-angle-double-right'></i></a>
