@@ -36,7 +36,7 @@
 </ul>
 
 # 3. ER図
-<img src="/assets/images/readme-er.jpg" width="500">
+<img src="/assets/images/readme-er.png" width="500">
 
 # 4. 機能一覧
 <h3>ポスト</h3>
@@ -45,23 +45,28 @@
  <p>自分のお気に入り動画のリンクをコメント付きで共有できます。</p>
  <li>投稿内容の閲覧 (animal.php, baby.php, funny.php, nature.php, post-detail.php)</li>
  <p>カテゴリーごとに各ユーザーの投稿を確認できます。</p>
- <img src="/assets/images/readme-er.png" width="500">
- <img src="/assets/images/readme-er.png" width="500">
+ <img src="/assets/images/readme-funny.png" width="500">
+ <br>
+ <img src="/assets/images/readme-post-detail.png" width="500">
  
  <li>投稿内容の編集 (edit-post.php)</li>
  <p>自分の投稿については編集できます。</p>
-</ul>
+ <img src="/assets/images/readme-edit-post.png" width="500">
+ </ul>
 
 <h3>プロフィール</h3>
 <ul>
  <li>自身のプロフィール閲覧 (profile.php)</li>
  <p>自分の投稿、"いいね"した投稿を閲覧できます。また、プロフィール画像を登録できます。</p>
+ <img src="/assets/images/readme-profile.png" width="500">
  <li>投稿内容の閲覧 (edit-profile.php)</li>
  <p>自身のユーザー情報について編集できます。</p>
-</ul>
+ <img src="/assets/images/readme-profile-edit.png" width="500">
+ </ul>
 
 <h3>問い合わせ (contact.php)</h3>
 <p>管理者へ使用上の問題点などを送信できます。</p>
+<img src="/assets/images/readme-contact.png" width="500">
 
 <h3>認証機能</h3>
 <ul>
@@ -73,6 +78,12 @@
 
 <h3>管理者画面 (admin.php, admin-….php)</h3>
 <p>"admin"でログインすると管理者画面に移行し、ユーザー情報、投稿、問い合わせを管理できます。</p>
+ <img src="/assets/images/readme-admin.png" width="500">
+ <img src="/assets/images/readme-admin-2.png" width="500">
+
+<h3>いいね機能</h3>
+<p>最も時間をかけて作成した機能です。DB上にブーリアン型の値を用意し、ボタンを押したときに数値や色が変化する仕様となっています。/p>
+<img src="/assets/images/readme-good.png" width="500">
 
 # 5. 今後の課題
 <ul>
