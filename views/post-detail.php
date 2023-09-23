@@ -41,7 +41,7 @@ $post_details = $post->getPost($_GET['post_id']);
                 </div>
             </div>
             <article class="p-3 bg-light">
-                <header>
+                <header> 
                     <a href="<?= $post_details['url']?>" class="text-dark text-decoration-none" target="_blank">
                         <div class="h3"><?= $post_details['title']?></div>
                     </a>

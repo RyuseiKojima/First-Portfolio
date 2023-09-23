@@ -80,7 +80,7 @@ $nature_list = $post->getnature();
                         <?php }?>
                     </tr>
                     <?php
-                    }
+                    } 
                     ?>
                 </tbody>
             </table>

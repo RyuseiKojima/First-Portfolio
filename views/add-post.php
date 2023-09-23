@@ -33,7 +33,7 @@ session_start();
                         <option value="animal">Animal</option>
                         <option value="baby">Baby</option>
                         <option value="nature">Nature</option>
-                    </select>
+                    </select> 
                     <select name="site" class="form-select mb-3 border-3 border-primary border-top-0 border-end-0 border-start-0 rounded-0 shadow-none" required>
                         <option value="" hidden>SITE</option>
                         <option value="youtube">YouTube</option>

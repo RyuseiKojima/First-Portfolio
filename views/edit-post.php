@@ -55,7 +55,7 @@ $site = $post->getSiteSelected($_GET['post_id']);
                 <button type="button" class="btn btn-danger w-100 mb-3 text-uppercase" data-bs-toggle="modal" data-bs-target="#deletePost">Delete</button>
             </div>
         </div>
-    </div>
+    </div> 
 
     <!-- Delete Window -->
     <div class="modal fade" id="deletePost" tabindex="-1" role="dialog" aria-hidden="true">

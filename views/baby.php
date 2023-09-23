@@ -66,7 +66,7 @@ $baby_list = $post->getbaby();
                         <?php if(empty($_SESSION['user_id'])) {
                             // Empty
                         } else {?>
-                            <td>
+                            <td> 
                                 <?php $like->getLike($baby['user_id'], $baby['post_id']);?>
                             </td>
                             <td>

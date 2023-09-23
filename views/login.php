@@ -20,7 +20,7 @@
                     <!-- Left image -->
                     <div class="col-xl d-none d-xl-block">
                         <img src="../assets/images/enter.jpg" class="img-fluid rounded-start"/>
-                    </div>
+                    </div> 
                     <!-- Right contents -->
                     <div class="col-xl align-items-center">
                         <div class="card-body p-auto p-xl-5 my-auto">

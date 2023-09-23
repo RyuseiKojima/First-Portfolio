@@ -35,7 +35,7 @@ $animal_list = $post->getAnimal();
                     <p class="text-dark">Various animals living on the earth</p>
                 </div>
             </div>
-        </div>
+        </div> 
         <!-- Table -->
         <main class="container mt-5">
             <table class="table table-primary table-striped table-hover">

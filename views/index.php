@@ -36,7 +36,7 @@ session_start();
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <a class="btn btn-outline-primary d-block" href="views/add-post.php"><i class="fa-solid fa-plus-circle me-2"></i>Add Post</a>
+                            <a class="btn btn-outline-primary d-block" href="add-post.php"><i class="fa-solid fa-plus-circle me-2"></i>Add Post</a>
                         </div>
                     </div>
                 </div>
