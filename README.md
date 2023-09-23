@@ -53,7 +53,7 @@
  <p>自分の投稿については編集できます。</p>
  <img src="/assets/images/readme-edit-post.png" width="500">
  </ul>
-
+<br>
 <h3>プロフィール</h3>
 <ul>
  <li>自身のプロフィール閲覧 (profile.php)</li>
@@ -63,11 +63,11 @@
  <p>自身のユーザー情報について編集できます。</p>
  <img src="/assets/images/readme-profile-edit.png" width="500">
  </ul>
-
+<br>
 <h3>問い合わせ (contact.php)</h3>
 <p>管理者へ使用上の問題点などを送信できます。</p>
 <img src="/assets/images/readme-contact.png" width="500">
-
+<br>
 <h3>認証機能</h3>
 <ul>
  <li>ユーザー登録 (signup.php, signup-retry.php)</li>
@@ -75,15 +75,15 @@
  <li>ログイン (login.php)</li>
  <li>ログアウト (../actions/logout.php)</li>
 </ul>
-
+<br>
 <h3>管理者画面 (admin.php, admin-….php)</h3>
 <p>"admin"でログインすると管理者画面に移行し、ユーザー情報、投稿、問い合わせを管理できます。</p>
  <img src="/assets/images/readme-admin.png" width="500">
  <img src="/assets/images/readme-admin-2.png" width="500">
-
+<br>
 <h3>いいね機能</h3>
-<p>最も時間をかけて作成した機能です。DB上にブーリアン型の値を用意し、ボタンを押したときに数値や色が変化する仕様となっています。/p>
-<img src="/assets/images/readme-good.png" width="500">
+<p><strong>最も時間をかけて作成した機能です。</strong>DB上にブーリアン型の値を用意し、ボタンを押したときに数値や色が変化する仕様となっています。</p>
+<img src="/assets/images/readme-good.png" width="200">
 
 # 5. 今後の課題
 <ul>
