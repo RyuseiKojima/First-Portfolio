@@ -15,7 +15,7 @@
  <li>HTML</li>
  <li>CSS</li>
  <li>Bootstrap</li>
- <li>JavaScript</li>
+ <li>JavaScript (データ削除時のモーダルウィンドウのみ)</li>
 </ul>
 
 <h3>バックエンド</h3>
